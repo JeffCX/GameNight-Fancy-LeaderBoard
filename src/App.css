@@ -1,0 +1,81 @@
+*{
+  margin:0;
+  border:0;
+}
+
+html{
+  font-size:62.5%;
+}
+
+video{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.container{
+  position: absolute;
+  top:4rem;
+  left:4rem;
+}
+
+.app-red{
+  font-size:5rem;
+  color:#8D265D;
+  margin-bottom:5rem;
+}
+
+.app-form-red{
+  color:white;
+  background:#8D265D;
+  font-size:10rem;
+  height:20rem;
+  border:none;
+  margin-bottom:10rem;
+}
+
+.app-blue{
+  font-size:5rem;
+  color:#81CEC8;
+  margin-bottom:5rem;
+}
+
+.app-form-blue{
+  color:white;
+  background:#81CEC8;
+  font-size:10rem;
+  height:20rem;
+  border:none;
+  margin-bottom:10rem;
+}
+
+.app-player-rank{
+  color:#81CEC8;
+  font-size:8rem;
+  margin-right:2rem;
+}
+
+.app-player-num{
+  color:#81CEC8;
+  font-size:6rem;
+  margin-right:2rem;
+}
+
+.app-player__blue{
+  text-align: right;
+  color:white;
+  background:#81CEC8;
+  font-size:5rem;
+  height:8rem;
+  border:none;
+  width:25rem;
+  margin-bottom:1rem;
+  padding:1rem;
+
+}
+
+.padding-left{
+  padding-left:10rem;
+}
