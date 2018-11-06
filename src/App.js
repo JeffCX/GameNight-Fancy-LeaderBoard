@@ -19,9 +19,14 @@ const TeamScore = (props) =>{
 
 const PlayerScore = (props)=>{
   return <div className='app-player'>
-       <span className='app-player-rank'> {props.rank}</span>
-       <span className='app-player-num'> {props.num}</span>
-       <input type='text' className='app-player__blue' placeholder="0" value={props.value}/>
+        <div className='row app-width'>
+          <div className='col-sm-2 app-bg-text' style={{color:`${props.textColor}`}}> {props.rank}</div>
+          <div className='col-sm-4 app-playerId'>{props.num} </div>
+          <div className={props.scoreBg}> 
+          {props.value}
+          </div>
+        </div>
+      
     </div>
 }
 
@@ -30,42 +35,102 @@ class App extends Component {
     return (
       <div className='app'>
           <video autoPlay muted loop id="myVideo">
-        <source src="bg.mp4" type="video/mp4" />
+        <source src="bg1.mp4" type="video/mp4" />
         Your browser does not support HTML5 video.
       </video>
-        <div className='container'>
-          <div className="row">
+        <div className='container-fluid'>
+          <div className="row padding-left">
             <div className='col-sm-6'>
               <PlayerScore 
               rank={1} 
               num="A0023"
+              scoreBg="col-sm-6 app-bg-score__blue"
+              textColor="blue"
               value={16}
               />
+
               <PlayerScore 
               rank={2} 
               num="A0024"
+              scoreBg="col-sm-6 app-bg-score__red"
+              textColor="red"
               value={15}
               />
+
+
               <PlayerScore 
-              rank={3} 
-              num="A0025"
-              value={14}
+              rank={1} 
+              num="A0023"
+              scoreBg="col-sm-6 app-bg-score__blue"
+              textColor="blue"
+              value={16}
               />
+              
+
              <PlayerScore 
-              rank={4} 
-              num="A0026"
-              value={13}
+              rank={1} 
+              num="A0023"
+              scoreBg="col-sm-6 app-bg-score__blue"
+              textColor="blue"
+              value={16}
               />
+              
+
+
               <PlayerScore 
-              rank={5} 
-              num="A0027"
-              value={12}
+              rank={1} 
+              num="A0023"
+              scoreBg="col-sm-6 app-bg-score__blue"
+              textColor="blue"
+              value={16}
               />
+              
+
               <PlayerScore 
-              rank={6} 
-              num="A0028"
-              value={11}
+              rank={1} 
+              num="A0023"
+              scoreBg="col-sm-6 app-bg-score__blue"
+              textColor="blue"
+              value={16}
               />
+              
+              <PlayerScore 
+              rank={1} 
+              num="A0023"
+              scoreBg="col-sm-6 app-bg-score__blue"
+              textColor="blue"
+              value={16}
+              />
+              
+
+              <PlayerScore 
+              rank={1} 
+              num="A0023"
+              scoreBg="col-sm-6 app-bg-score__blue"
+              textColor="blue"
+              value={16}
+              />
+              
+
+              <PlayerScore 
+              rank={1} 
+              num="A0023"
+              scoreBg="col-sm-6 app-bg-score__blue"
+              textColor="blue"
+              value={16}
+              />
+              
+
+               <PlayerScore 
+              rank={1} 
+              num="A0023"
+              scoreBg="col-sm-6 app-bg-score__blue"
+              textColor="blue"
+              value={16}
+              />
+              
+
+              
             
             
             </div>
@@ -75,7 +140,7 @@ class App extends Component {
                teamcolor="app-red"
                formClass="form-control app-form-red text-right" 
                team="RED TEAM" 
-               score={0}
+               score={110201}
                />
 
 
@@ -83,7 +148,7 @@ class App extends Component {
                 teamcolor="app-blue"
                formClass="form-control app-form-blue text-right" 
                team="BLUE TEAM" 
-               score={0}
+               score={1020310}
                />
               
             </div>

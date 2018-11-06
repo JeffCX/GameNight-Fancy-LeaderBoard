@@ -29,12 +29,18 @@ video{
 
 .app-form-red{
   color:white;
-  background:#8D265D;
+  background:#81CEC8;
+  background:url("red_team_bg.png");
+  background-size: cover;
+  background-position: center;
+  width:100%;
+  height:100%;
   font-size:10rem;
   height:20rem;
   border:none;
   margin-bottom:10rem;
 }
+
 
 .app-blue{
   font-size:5rem;
@@ -45,37 +51,85 @@ video{
 .app-form-blue{
   color:white;
   background:#81CEC8;
+  background:url("blue_team_bg.png");
+  background-size: cover;
+  background-position: center;
+  width:100%;
+  height:100%;
   font-size:10rem;
   height:20rem;
   border:none;
   margin-bottom:10rem;
 }
 
-.app-player-rank{
-  color:#81CEC8;
-  font-size:8rem;
-  margin-right:2rem;
+
+
+
+.app-player{
+  text-align: left;
+ 
+  margin-bottom: 2vh;
+  width:100%;
+  
 }
 
-.app-player-num{
-  color:#81CEC8;
-  font-size:6rem;
-  margin-right:2rem;
+.app-bg-text{
+  background: url("./blue_txt.png");
+  background-size: cover;
+  background-position: center;
+  width:100%;
+  height:100%;
+  height:7vh;
+  text-align: center;
+  padding-top:1vh;
+  padding-bottom: 1vh;
+  font-size:3rem;
 }
 
-.app-player__blue{
+.app-bg-score__blue{
+  background: url("./blue_bg.png");
+  background-size: cover;
+  background-position: center;
+  width:100%;
+  height:7vh;
   text-align: right;
+  
+  padding-top:1vh;
+  padding-bottom: 1vh;
+  font-size:3.5rem;
   color:white;
-  background:#81CEC8;
-  font-size:5rem;
-  height:8rem;
-  border:none;
-  width:25rem;
-  margin-bottom:1rem;
-  padding:1rem;
+    
+}
 
+.app-bg-score__red{
+  background: url("./red_bg.png");
+  background-size: cover;
+  background-position: center;
+  width:100%;
+  height:7vh;
+  text-align: right;
+  
+  padding-top:1vh;
+  padding-bottom: 1vh;
+  font-size:3.5rem;
+  color:white;
+}
+
+.app-player{
+
+  text-align: center;
+  font-size:3.5rem;
+  color:white;
 }
 
 .padding-left{
-  padding-left:10rem;
+  padding-left:5%;
+  padding-right:5%;
+  padding-top:5%;
+  padding-bottom:5%;
 }
+
+
+
+
+
