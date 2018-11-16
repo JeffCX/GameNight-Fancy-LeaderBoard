@@ -27,6 +27,17 @@ video{
   margin-bottom:5rem;
 }
 
+.app-red-no-bottom{
+  font-size:5rem;
+  color:#8D265D;
+
+}
+
+
+
+
+
+
 .app-form-red{
   color:white;
   background:#81CEC8;
@@ -38,15 +49,27 @@ video{
   font-size:10rem;
   height:20rem;
   border:none;
-  margin-bottom:10rem;
+
 }
 
+.mag{
+  margin-bottom:5rem;
+}
 
 .app-blue{
   font-size:5rem;
   color:#81CEC8;
-  margin-bottom:5rem;
+  margin-bottom: 5rem;
+
 }
+
+.app-blue-no-bottom{
+  font-size:5rem;
+  color:#81CEC8;
+
+}
+
+
 
 .app-form-blue{
   color:white;
@@ -84,6 +107,7 @@ video{
   padding-top:1vh;
   padding-bottom: 1vh;
   font-size:3rem;
+  animation: showup 1s ease-in-out; 
 }
 
 .app-bg-score__blue{
@@ -98,6 +122,7 @@ video{
   padding-bottom: 1vh;
   font-size:3.5rem;
   color:white;
+  animation: showup 1s ease-in-out; 
     
 }
 
@@ -113,6 +138,28 @@ video{
   padding-bottom: 1vh;
   font-size:3.5rem;
   color:white;
+  opacity: 1;
+  animation: showup 1s ease-in-out; 
+
+
+}
+
+@keyframes showup {
+  from {
+
+    opacity: 0;
+    
+  }
+
+  to {
+
+    opacity: 1;
+    
+  }
+}
+
+.text-center{
+  text-align: center !important;
 }
 
 .app-player{

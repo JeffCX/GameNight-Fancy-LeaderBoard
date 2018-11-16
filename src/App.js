@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import axios from "axios"
 
-const TeamScore = (props) =>{
 
-  return  <div>
-     <h1 className={props.teamcolor}>
-     {props.team}
+import TeamScore from "./TeamScore"
 
-</h1>
-
-<div className="form-group">
- <input type="email" className={props.formClass} aria-describedby="emailHelp" placeholder="0" value={props.score}/>
-</div>
-</div>
-
-}
 
 const PlayerScore = (props)=>{
   return <div className='app-player'>
         <div className='row app-width'>
-          <div className='col-sm-2 app-bg-text' style={{color:`${props.textColor}`}}> {props.rank}</div>
+          <div className='col-sm-2 app-bg-text' style={{color:`${props.textColor}`,fontWeight:"bold"}}> {props.rank}</div>
           <div className='col-sm-4 app-playerId'>{props.num} </div>
           <div className={props.scoreBg}> 
           {props.value}
@@ -30,7 +19,98 @@ const PlayerScore = (props)=>{
     </div>
 }
 
-class App extends Component {
+class Main extends Component {
+
+
+  componentWillMount(){
+    
+
+    this.timerID = setInterval(()=>{
+      this.setState({
+        show:false
+      })
+   
+      axios.post("https://gamenight-leaderboard.herokuapp.com/get_team_score").then((data)=>{
+        console.log(data.data)
+
+        this.setState({
+          RedScore:data.data.redScore,
+          BlueScore:data.data.blueScore
+        })
+    }).catch((e)=>{
+      console.log(e)
+    })
+
+
+      axios.post("https://gamenight-leaderboard.herokuapp.com/get_player_score").then((data)=>{
+        console.log(data.data)
+        this.setState({TopTen:data.data})
+      }).catch((e)=>{
+          console.log(e)
+      }
+
+    
+  
+      )
+
+      
+     
+
+     
+    
+      
+    },5000)
+
+    this.show = setInterval(()=>{
+      this.setState({
+        show:true
+      })
+    },5000)
+
+     
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+ 
+  
+  constructor(props){
+
+    super(props)
+    this.state={
+      TopTen:[],
+      RedScore:0,
+      BlueScore:0,
+      show:false
+    }
+  }
+
+  renderPlayer(){
+
+    
+    return this.state.TopTen.map((score,index)=>{
+      if(score.team=="blue"){
+        return <PlayerScore 
+        rank={index} 
+        num= {score.num}
+        scoreBg="col-sm-6 app-bg-score__blue"
+        textColor="#81CEC8"
+        value={score.chips}
+        />
+      }else{
+        return <PlayerScore 
+        rank={index} 
+        num= {score.num}
+        scoreBg="col-sm-6 app-bg-score__red"
+        textColor="#8D265D"
+        value={score.chips}
+        />
+      }
+    })
+  }
+
+
   render() {
     return (
       <div className='app'>
@@ -41,106 +121,17 @@ class App extends Component {
         <div className='container-fluid'>
           <div className="row padding-left">
             <div className='col-sm-6'>
-              <PlayerScore 
-              rank={1} 
-              num="A0023"
-              scoreBg="col-sm-6 app-bg-score__blue"
-              textColor="blue"
-              value={16}
-              />
-
-              <PlayerScore 
-              rank={2} 
-              num="A0024"
-              scoreBg="col-sm-6 app-bg-score__red"
-              textColor="red"
-              value={15}
-              />
-
-
-              <PlayerScore 
-              rank={1} 
-              num="A0023"
-              scoreBg="col-sm-6 app-bg-score__blue"
-              textColor="blue"
-              value={16}
-              />
-              
-
-             <PlayerScore 
-              rank={1} 
-              num="A0023"
-              scoreBg="col-sm-6 app-bg-score__blue"
-              textColor="blue"
-              value={16}
-              />
-              
-
-
-              <PlayerScore 
-              rank={1} 
-              num="A0023"
-              scoreBg="col-sm-6 app-bg-score__blue"
-              textColor="blue"
-              value={16}
-              />
-              
-
-              <PlayerScore 
-              rank={1} 
-              num="A0023"
-              scoreBg="col-sm-6 app-bg-score__blue"
-              textColor="blue"
-              value={16}
-              />
-              
-              <PlayerScore 
-              rank={1} 
-              num="A0023"
-              scoreBg="col-sm-6 app-bg-score__blue"
-              textColor="blue"
-              value={16}
-              />
-              
-
-              <PlayerScore 
-              rank={1} 
-              num="A0023"
-              scoreBg="col-sm-6 app-bg-score__blue"
-              textColor="blue"
-              value={16}
-              />
-              
-
-              <PlayerScore 
-              rank={1} 
-              num="A0023"
-              scoreBg="col-sm-6 app-bg-score__blue"
-              textColor="blue"
-              value={16}
-              />
-              
-
-               <PlayerScore 
-              rank={1} 
-              num="A0023"
-              scoreBg="col-sm-6 app-bg-score__blue"
-              textColor="blue"
-              value={16}
-              />
-              
-
-              
+              {this.state.show?this.renderPlayer():""}
             
             
             </div>
-            <div className='col-sm-6 padding-left'>
+            <div className='col-sm-6' style={{paddingLeft:"5%"}}>
 
               <TeamScore
                teamcolor="app-red"
-               formClass="form-control app-form-red text-right" 
+               formClass="form-control mag  app-form-red text-right" 
                team="RED TEAM" 
-               score={110201}
+               score={this.state.RedScore}
                />
 
 
@@ -148,7 +139,7 @@ class App extends Component {
                 teamcolor="app-blue"
                formClass="form-control app-form-blue text-right" 
                team="BLUE TEAM" 
-               score={1020310}
+               score={this.state.BlueScore}
                />
               
             </div>
@@ -161,4 +152,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;
