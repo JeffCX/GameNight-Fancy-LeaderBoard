@@ -34,15 +34,33 @@ class App extends Component {
         let blueScore = scores[1]
         let lst = []
 
+        alert(blueScore)
+        alert(redScore)
+      
+
         if(redScore<=blueScore){
+
+            this.setState({
+                class:"form-control app-form-blue text-right text-center",
+                txtColor:" app-blue-no-bottom"
+            })
+
+          
             for(var i = 0;i<data.data.length;i++){
-                if(data.data[i].team=="red"){
+                if(data.data[i].team=="blue"){
                     lst.push(data.data[i].playerNum)
                 }
             }
-        }else{
+        }
+        
+        if(redScore>blueScore){
+            this.setState({
+                class:"form-control app-form-red text-right text-center",
+                txtColor:" app-red-no-bottom"
+            })
+     
             for(var i = 0;i<data.data.length;i++){
-                if(data.data[i].team=="blue"){
+                if(data.data[i].team!="blue"){
                     lst.push(data.data[i].playerNum)
                 }
             }
@@ -76,6 +94,8 @@ class App extends Component {
         timer:"",
         timer1:"",
         timer2:"",
+        class:"",
+        txtColor:"",
         data:[]
     }
     this.timer = this.timer.bind(this)
@@ -146,22 +166,22 @@ class App extends Component {
             <div className='row padding-left'>
             <div className='col-sm-8 offset-sm-2' >
                 <TeamScore
-               teamcolor="app-red-no-bottom"
-               formClass="form-control app-form-red text-right text-center" 
+               teamcolor={this.state.txtColor}
+               formClass= {this.state.class}
                team="First" 
                score={this.state.lucky1}
                />
 
                 <TeamScore
-               teamcolor="app-red-no-bottom"
-               formClass="form-control app-form-red text-right text-center" 
+               teamcolor={this.state.txtColor}
+               formClass={this.state.class}
                team="Second" 
                score={this.state.lucky2}
                />
 
                 <TeamScore
-               teamcolor="app-red-no-bottom"
-               formClass="form-control app-form-red text-right text-center" 
+               teamcolor={this.state.txtColor}
+               formClass={this.state.class} 
                team="Third" 
                score={this.state.lucky3}
                />

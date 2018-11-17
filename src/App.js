@@ -92,16 +92,16 @@ class Main extends Component {
     return this.state.TopTen.map((score,index)=>{
       if(score.team=="blue"){
         return <PlayerScore 
-        rank={index} 
-        num= {score.num}
+        rank={index+1} 
+        num= {score.playerNum}
         scoreBg="col-sm-6 app-bg-score__blue"
         textColor="#81CEC8"
         value={score.chips}
         />
       }else{
         return <PlayerScore 
-        rank={index} 
-        num= {score.num}
+        rank={index+1} 
+        num= {score.playerNum}
         scoreBg="col-sm-6 app-bg-score__red"
         textColor="#8D265D"
         value={score.chips}
