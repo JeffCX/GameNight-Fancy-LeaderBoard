@@ -9,7 +9,7 @@ import TeamScore from "./TeamScore"
 const PlayerScore = (props)=>{
   return <div className='app-player'>
         <div className='row app-width'>
-          <div className='col-sm-2 app-bg-text' style={{color:`${props.textColor}`,fontWeight:"bold"}}> {props.rank}</div>
+          <div className='col-sm-2 app-bg-text' style={{color:`${props.textColor}`,fontWeight:"bold",fontSize:"4rem"}}> {props.rank}</div>
           <div className='col-sm-4 app-playerId'>{props.num} </div>
           <div className={props.scoreBg}> 
           {props.value}
