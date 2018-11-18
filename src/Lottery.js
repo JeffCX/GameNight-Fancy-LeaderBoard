@@ -44,7 +44,7 @@ class App extends Component {
             })
             
 
-            axios.post("http://localhost:3000/blue").then((data)=>{
+            axios.post("https://gamenight-leaderboard.herokuapp.com/blue").then((data)=>{
                 var score = 0
                 for(var i = 0;i<data.data.length;i++){
                     if(data.data[i].team=="blue"){
@@ -64,7 +64,7 @@ class App extends Component {
                 txtColor:" app-red-no-bottom"
             })
      
-            axios.post("http://localhost:3000/red").then((data)=>{
+            axios.post("https://gamenight-leaderboard.herokuapp.com/red").then((data)=>{
                 for(var i = 0;i<data.data.length;i++){
                     if(data.data[i].team=="red"){
                         lst.push(data.data[i].playerNum)
