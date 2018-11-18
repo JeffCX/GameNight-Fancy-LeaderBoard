@@ -10,7 +10,7 @@ const PlayerScore = (props)=>{
   return <div className='app-player'>
         <div className='row app-width'>
           <div className='col-sm-2 app-bg-text' style={{color:`${props.textColor}`,fontWeight:"bold",fontSize:"4rem"}}> {props.rank}</div>
-          <div className='col-sm-4 app-playerId'>{props.num} </div>
+          <div className={props.numClass}>{props.num} </div>
           <div className={props.scoreBg}> 
           {props.value}
           </div>
@@ -96,6 +96,7 @@ class Main extends Component {
         num= {score.playerNum}
         scoreBg="col-sm-6 app-bg-score__blue"
         textColor="#81CEC8"
+        numClass="col-sm-4 app-playerId shadow-blue"
         value={score.chips}
         />
       }else{
@@ -103,6 +104,7 @@ class Main extends Component {
         rank={index+1} 
         num= {score.playerNum}
         scoreBg="col-sm-6 app-bg-score__red"
+        numClass="col-sm-4 app-playerId shadow-red"
         textColor="#8D265D"
         value={score.chips}
         />

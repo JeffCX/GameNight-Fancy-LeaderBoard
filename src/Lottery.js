@@ -34,8 +34,6 @@ class App extends Component {
         let blueScore = scores[1]
         let lst = []
 
-        alert(blueScore)
-        alert(redScore)
       
 
         if(redScore<=blueScore){
@@ -44,13 +42,20 @@ class App extends Component {
                 class:"form-control app-form-blue text-right text-center",
                 txtColor:" app-blue-no-bottom"
             })
+            
 
-          
-            for(var i = 0;i<data.data.length;i++){
-                if(data.data[i].team=="blue"){
-                    lst.push(data.data[i].playerNum)
+            axios.post("http://localhost:3000/blue").then((data)=>{
+                var score = 0
+                for(var i = 0;i<data.data.length;i++){
+                    if(data.data[i].team=="blue"){
+                        lst.push(data.data[i].playerNum)
+                        score +=data.data[i].chips
+                    }
                 }
-            }
+               
+            })
+          
+            
         }
         
         if(redScore>blueScore){
@@ -59,11 +64,14 @@ class App extends Component {
                 txtColor:" app-red-no-bottom"
             })
      
-            for(var i = 0;i<data.data.length;i++){
-                if(data.data[i].team!="blue"){
-                    lst.push(data.data[i].playerNum)
+            axios.post("http://localhost:3000/red").then((data)=>{
+                for(var i = 0;i<data.data.length;i++){
+                    if(data.data[i].team=="red"){
+                        lst.push(data.data[i].playerNum)
+                    }
                 }
-            }
+            })
+          
         }
 
         console.log(lst)
@@ -169,6 +177,7 @@ class App extends Component {
                teamcolor={this.state.txtColor}
                formClass= {this.state.class}
                team="First" 
+           
                score={this.state.lucky1}
                />
 
