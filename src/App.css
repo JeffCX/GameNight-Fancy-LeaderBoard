@@ -34,14 +34,10 @@ video{
 }
 
 
-
-
-
-
 .app-form-red{
   color:white;
   background:#81CEC8;
-  background:url("red_team_bg.png");
+  background:url("./asset/red_team_bg.png");
   background-size: cover;
   background-position: center;
   width:100%;
@@ -69,12 +65,10 @@ video{
 
 }
 
-
-
 .app-form-blue{
   color:white;
   background:#81CEC8;
-  background:url("blue_team_bg.png");
+  background:url("./asset/blue_team_bg.png");
   background-size: cover;
   background-position: center;
   width:100%;
@@ -85,40 +79,31 @@ video{
  
 }
 
-
-
-
 .app-player{
   text-align: left;
- 
   margin-bottom: 2vh;
   width:100%;
-  
 }
 
 .app-bg-text{
-  
   background-size: cover;
-
   background-position: center;
   width:100%;
   height:100%;
   height:7vh;
   text-align: center;
-
   padding-bottom: 1vh;
   font-size:3rem;
   animation: showup 1s ease-in-out; 
 }
 
 .app-bg-score__blue{
-  background: url("./blue_bg.png");
+  background: url("./asset//blue_bg.png");
   background-size: cover;
   background-position: center;
   width:100%;
   height:7vh;
   text-align: right;
-  
   padding-top:1vh;
   padding-bottom: 1vh;
   font-size:3.5rem;
@@ -128,7 +113,7 @@ video{
 }
 
 .app-bg-score__red{
-  background: url("./red_bg.png");
+  background: url("./asset//red_bg.png");
   background-size: cover;
   background-position: center;
   width:100%;
@@ -141,15 +126,9 @@ video{
   color:white;
   opacity: 1;
   animation: showup 1s ease-in-out; 
-
-
 }
 
 .shadow-red{
-  
-
-
-
   text-shadow: 0 1px 0 pink, 
                  0 2px 0 #8D265D,
                  0 3px 0 #bbb,
@@ -165,10 +144,6 @@ video{
 }
 
 .shadow-blue{
-  
-
-
-
   text-shadow: 0 1px 0 blue, 
                  0 2px 0 #81CEC8,
                  0 3px 0 #bbb,
@@ -185,13 +160,9 @@ video{
 
 @keyframes showup {
   from {
-
     opacity: 0;
-    
   }
-
   to {
-
     opacity: 1;
     
   }
