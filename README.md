@@ -1,5 +1,6 @@
 This game board is built to display player numbers and team scores 
 for NYU CSSA 2018 11.19 Game night Player Number One 
+## https://nyucssa-fancy-leaderboard.herokuapp.com/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
